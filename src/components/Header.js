@@ -9,6 +9,7 @@ const Header= (props)=>{
         <header>
             <Search fn={props.fn}/>
             <Nav fn={props.fn}/>
+            <h1>Results</h1>
         </header>
     );
 }
