@@ -37,11 +37,11 @@ class App extends Component{
         return (
             <BrowserRouter>
                 <div className="container">
-                    <Header />
+                    <Header fn={this.performSearch} />
                     {
                         (this.state.loading)
                         ? <p>Loading...</p>
-                        : <ImageList data={this.state.images} />
+                        : <ImageList data={this.state.images} className="photo-container" />
                     }
                     {/* <Routes>
                         <Route path="/" element={ <Home /> } />

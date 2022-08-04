@@ -4,11 +4,11 @@ import React from "react";
 import Search from "./Search";
 import Nav from "./Nav";
 
-const Header= ()=>{
+const Header= (props)=>{
     return (
         <header>
-            <Search />
-            <Nav />
+            <Search fn={props.fn}/>
+            <Nav fn={props.fn}/>
         </header>
     );
 }
