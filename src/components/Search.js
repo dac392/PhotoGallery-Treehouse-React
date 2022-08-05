@@ -1,25 +1,23 @@
 import React, {Component} from "react";
+import {Link, useNavigate} from 'react-router-dom';
 
-class Search extends Component{
-    state={
-        value:''
-    };
+let value="";
 
-    handleValueChange = (e)=>{
-        this.setState({value: e.target.value})
+const Search = (props)=>{
+    let navigate = useNavigate();
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      await props.fn(event.target);
+      console.log(value.value);
+      navigate(`/${value.value}`, { replace: true });
+      value.value = "";
     }
-    handleSubmit = (e)=>{
-        e.preventDefault();
-        this.props.fn(this.state.value);
-        this.setState({value:''});
-    }
-    render(){
         return (
-            <form className="search-form" onSubmit={this.handleSubmit}>
+            <form className="search-form" onSubmit={handleSubmit} >
                 <input 
                     type="text"
-                    value={this.state.value}
-                    onChange={this.handleValueChange}
+                    ref={input=>(value=input)}
                     placeholder="Search..."
                 />
                 <button type="submit" className="search-button">
@@ -30,7 +28,7 @@ class Search extends Component{
                 </button>
             </form>
         );
-    }
+    
 }
 
 export default Search;

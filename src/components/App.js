@@ -3,7 +3,7 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    Link
+
 } from "react-router-dom"
 import axios from 'axios';
 import apiKey from "../config";
@@ -31,6 +31,7 @@ class App extends Component{
             this.setState({images: response.data.photos.photo, loading: false});
         })
         .catch(error=>console.log('Error fetching and parsing data', error))
+    
     }
 
     render(){
@@ -38,15 +39,20 @@ class App extends Component{
             <BrowserRouter>
                 <div className="container">
                     <Header fn={this.performSearch} />
-                    {
+                    {/* {
                         (this.state.loading)
                         ? <p>Loading...</p>
                         : <ImageList data={this.state.images} className="photo-container" />
-                    }
-                    {/* <Routes>
-                        <Route path="/" element={ <Home /> } />
-                    </Routes> */}
+                    } */}
+                    <Routes>
+                        <Route path="/" element={<ImageList data={this.state.images} className="photo-container" />} />
+                        <Route path="/:id" element={<ImageList data={this.state.images} className="photo-container" />} />
+                    </Routes>
+
                 </div>
+                <Routes>
+                    <Route path="*" element={<p>place holder</p>} />
+                </Routes>
             </BrowserRouter>
         );
     }

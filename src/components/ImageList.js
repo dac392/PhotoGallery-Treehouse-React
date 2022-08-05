@@ -6,7 +6,6 @@ const ImageList = props=>{
     const results = props.data
     let imgs;
     if(results.length > 0){
-        const url_link = 
         imgs = results.map( img => <Image data={img} key={img.id}/>);
     }else{
         imgs = Error;
