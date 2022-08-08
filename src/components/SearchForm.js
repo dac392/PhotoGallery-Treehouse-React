@@ -1,21 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 
 const SearchForm = (props)=>{
+    const [query, setQuery] = useState('');
+
     let navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
-        navigate(`/results/${event.target}`, { replace: true });
-        console.log("rerouted")
-        event.target = "";
+        navigate(`/results/${query}`, { replace: true });
+        setQuery('')
     }
     return (
         <form className="search-form" onSubmit={handleSubmit} >
             <input 
                 type="text"
                 placeholder="Search..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
             />
             <button type="submit" className="search-button">
                 <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
