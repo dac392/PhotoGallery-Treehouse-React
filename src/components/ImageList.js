@@ -3,7 +3,7 @@ import React from "react";
 import Image from "./Image"
 import Error from "./Error";
 
-
+// builds the list of images for display
 const ImageList = ({results, query})=>{
 
     let list;
@@ -14,6 +14,7 @@ const ImageList = ({results, query})=>{
         list = <Error msg={msg}/>
     }
 
+    // in case of Home
     if(query==="/"){
         query="Results"
     }

@@ -5,6 +5,7 @@ import ImageList from "./ImageList"
 import axios from 'axios';
 import apiKey from "../config";
 
+// calls ImageList while on path=results/:query
 const Results = ()=>{
     const {query} = useParams();
     const [images, setImage] = useState([]);

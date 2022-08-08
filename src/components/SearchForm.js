@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-
+// handles the search input functionality
 const SearchForm = (props)=>{
-    const [query, setQuery] = useState('');
 
+    // used for input value as state
+    const [query, setQuery] = useState('');
     let navigate = useNavigate();
 
+    // reroutes to path=/results/:query
     async function handleSubmit(event) {
         event.preventDefault();
         navigate(`/results/${query}`, { replace: true });

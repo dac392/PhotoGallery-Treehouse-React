@@ -1,9 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+// static navigation buttons 
 const Nav = ()=>{
 
     let navigate = useNavigate();
+
+    // reroutes to path=/results/:query
     function handleSubmit(query) {
         navigate(`/results/${query}`, { replace: true });
     }

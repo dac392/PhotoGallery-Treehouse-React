@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// component used to display an error message
 const Error = ({msg})=>{
     return (
         <section className="not-found">

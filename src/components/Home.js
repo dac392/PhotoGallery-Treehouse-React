@@ -7,10 +7,11 @@ import ImageList from "./ImageList";
 
 const msg = "No results could be found for your search"
 
+// page displayed on firt load. 
 const Home = (props)=>{ 
-
+    // uses useState and useEffect, to make sure that perform search is only being loaded in once
+     
     const [data, setImage] = useState([]);
-
     useEffect(() => {
         // 👇️ fetch data from remote API
         const performSearch = (query="Beach")=>{

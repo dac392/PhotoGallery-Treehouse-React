@@ -4,6 +4,7 @@ import React from "react";
 import SearchForm from "./SearchForm";
 import Nav from "./Nav";
 
+// header container for Search input and the nav buttons
 const Header= (props)=>{
     return (
         <header>
