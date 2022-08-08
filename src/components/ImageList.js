@@ -1,12 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+
 import Image from "./Image"
 import Error from "./Error";
 
 
-const ImageList = ({search})=>{
-    const {query} = useParams();
-    const results = search(query)
+const ImageList = ({results, query})=>{
+
     let list;
     if(results){
         list = results.map( img=><Image data={img} key={img.id} />);
