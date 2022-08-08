@@ -1,15 +1,14 @@
 import React from "react";
 
 // Components
-import Search from "./Search";
-import Nav from "./Nav";
+import SearchForm from "./SearchForm";
+import Nav from "./depracated/Nav";
 
 const Header= (props)=>{
     return (
         <header>
-            <Search fn={props.fn}/>
+            <SearchForm search={props.fn}/>
             <Nav fn={props.fn}/>
-            <h1>Results</h1>
         </header>
     );
 }
